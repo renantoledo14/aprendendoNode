@@ -2,11 +2,11 @@
   "urls": [
     {
       "name": "Rockeseat",
-      "url": "http://rockeseat.com.br"
+      "url": "https://www.rocketseat.com.br/"
     },
     {
       "name": "Google",
-      "url": "http://google.com"
+      "url": "https://google.com"
     }
   ]
 }
