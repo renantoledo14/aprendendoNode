@@ -5,15 +5,8 @@
       "url": "https://www.rocketseat.com.br/"
     },
     {
-      "name": "Google",
-      "url": "https://google.com"
-    },{
-      "name": "Rockeseat",
-      "url": "https://www.rocketseat.com.br/"
-    },
-    {
-      "name": "Google",
-      "url": "https://google.com"
+      "name": "GIT",
+      "url": "https://github.com/"
     }
   ]
 }

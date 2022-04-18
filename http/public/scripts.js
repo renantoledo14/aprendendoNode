@@ -20,19 +20,24 @@ function addElement({ name, url }) {
     a.target = "_blank"
 
     trash.innerHTML = "x"
-    trash.onclick = () => removeElement(trash)
+    trash.onclick = () => removeElement(trash, name, url)
 
     li.append(a)
     li.append(trash)
     ul.append(li)
 }
 
-function removeElement(el) {
-    if (confirm('Tem certeza que deseja deletar?'))
-        el.parentNode.remove()
+async function removeElement(el, name, url) {
+  
+    if (confirm('Tem certeza que deseja deletar?')) {
+        const res = await fetch(`http://localhost:3000/?name=${name}&url=${url}&del=1`).then((data) => data.json())
+        
+        if(res.message === 'ok')
+            el.parentNode.remove()
+    }
 }
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     let { value } = input
@@ -48,7 +53,9 @@ form.addEventListener("submit", (event) => {
     if (!/^http/.test(url))
         return alert("Digite a url da maneira correta")
 
-    addElement({ name, url })
+    const res = await fetch(`http://localhost:3000/?name=${name}&url=${url}`).then((data) => data.json())
+    if(res.message === 'ok')
+        addElement({ name, url })
 
     input.value = ""
 })
